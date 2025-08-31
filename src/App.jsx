@@ -10,9 +10,9 @@ function App() {
     const [form, setForm] = useState({ todo: '', description: '', date: '' })
     const [editId, setEditId] = useState(null);
     const [date, setDate] = useState("");
-    const [checkTodo, setCheckTodo] = useState(false);
     const [searchQuery, setSearchQuery] = useState('')
     const [debounceQuery, setDebounceQuery] = useState(searchQuery);
+    const [selectedtodos, setSelectedTodos] = useState([])
 
     function handleChange(e) {
         setForm({ ...form, [e.target.name]: e.target.value })
@@ -35,12 +35,14 @@ function App() {
         localStorage.setItem('Todos', JSON.stringify(filteredTodos));
     }
 
-    function handleCheck(todo) {
-        console.log(todo);
-        
-        // setCheckTodo(prev => !prev)
+    function handleCheck(currentTodo) {
+        setSelectedTodos(prevTodo => prevTodo.includes(currentTodo.id) ? prevTodo.filter(id => id !== currentTodo.id) : [...selectedtodos, currentTodo.id])
     }
-
+    function handleCheckedDelete(){
+      setTodos(prevTodo => prevTodo.filter(todo => !selectedtodos.includes(todo.id)))
+      setSelectedTodos([])
+    }
+    
     function handleEdit(id) {
         const editedTodo = todos.find(todo => todo.id === id);
         setForm({ todo: editedTodo.todo, description: editedTodo.description, date: editedTodo.date })
@@ -57,7 +59,7 @@ function App() {
     }, [searchQuery])
 
     const filterTodos = todos.filter(todo => todo.description.toLocaleLowerCase().includes(debounceQuery.toLocaleLowerCase()) || todo.todo.toLocaleLowerCase().includes(debounceQuery.toLocaleLowerCase()))
-
+    
     return (
         <div style={{ margin: '20px' }}>
             <h2>Todos</h2>
@@ -91,7 +93,7 @@ function App() {
                 </ul>
             }
             <br />
-            {filterTodos.length > 0 && <button disabled={checkTodo}>Delete Checked Todos</button>}
+            {filterTodos.length > 0 && <button disabled={selectedtodos.length > 0 ? false : true} className={selectedtodos.length > 0 ? '' : 'cursor-not-allowed pointer-events-none opacity-50'} onClick={handleCheckedDelete}>Delete Checked Todos</button>}
         </div>
 
 
