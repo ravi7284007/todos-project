@@ -16,7 +16,7 @@ export default function App() {
         <Route path="/search-location" element={<SearchLocation />} />
         {/* dynamic route */}
         <Route path="/" element={<Todos />} />
-        <Route path="/todos-details/" element={<TodosDetails />} />
+        <Route path="/todo/:id" element={<TodosDetails />} />
       </Routes>
     </div>
   );

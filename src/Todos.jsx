@@ -81,10 +81,11 @@ function App() {
                         filterTodos.map((todo) => <li key={todo.id} className='shadow-lg shadow-indigo-500/20 flex border-2 mb-5.5 py-3 px-3 justify-between bg-cyan-950 rounded-lg border-indigo-600'>
                             <div className='flex'>
                                 <span className='me-1.5'><input type="checkbox"  onChange={() => handleCheck(todo)} /></span>
-                                <div>
-                                    <h4 className='text-left' onClick={() => navigate('/todos-details')}><strong>{todo.todo}</strong> </h4>
+                                <div className='text-left basis-100'>
+                                    <h4 className='text-left' onClick={() => navigate(`/todo/${todo.id}`)}><strong>{todo.todo}</strong> </h4>
                                     <p>
                                         <span>{todo.description}</span>
+                                        <br/>
                                         {todo?.date && <small>Date : {todo.date}</small>}
                                     </p>
                                 </div>
