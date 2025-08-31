@@ -31,18 +31,18 @@ const SearchLocation = () => {
 
     return (
         <div>
-            <div class="hot div">
+            <div className="hot div">
 
-                <span class="sun"></span>
-                <span class="sunx"></span>
+                <span className="sun"></span>
+                <span className="sunx"></span>
             </div>
 
-            <div class="cloudy div">
-                <span class="cloud"></span>
-                <span class="cloudx"></span>
+            <div className="cloudy div">
+                <span className="cloud"></span>
+                <span className="cloudx"></span>
             </div>
 
-            <div class="stormy div">
+            <div className="stormy div">
                 <ul>
                     <li></li>
                     <li></li>
@@ -53,13 +53,13 @@ const SearchLocation = () => {
                     <li></li>
                     <li></li>
                 </ul>
-                <span class="snowe"></span>
-                <span class="snowex"></span>
-                <span class="stick"></span>
-                <span class="stick2"></span>
+                <span className="snowe"></span>
+                <span className="snowex"></span>
+                <span className="stick"></span>
+                <span className="stick2"></span>
             </div>
 
-            <div class="breezy div">
+            <div className="breezy div">
                 <ul>
 
                     <li></li>
@@ -68,15 +68,15 @@ const SearchLocation = () => {
                     <li></li>
                     <li></li>
                 </ul>
-                <span class="cloudr"></span>
+                <span className="cloudr"></span>
 
 
             </div>
 
-            <div class="night div">
-                <span class="moon"></span>
-                <span class="spot1"></span>
-                <span class="spot2"></span>
+            <div className="night div">
+                <span className="moon"></span>
+                <span className="spot1"></span>
+                <span className="spot2"></span>
                 <ul>
                     <li></li>
                     <li></li>
@@ -89,19 +89,19 @@ const SearchLocation = () => {
             <h1>Find Location</h1>
 
 
-            <input type="search" value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className='border-2 p-3 border-orange-700 mx-3 w-3xl my-3.5' />
+            <input type="search" value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className='capitalize border-2 p-3 border-orange-700 mx-3 w-3xl my-3.5' />
             <div className="weather-card flex flex-row mt-6">
-                <div class="basis-100  flex flex-row gap-5">
-                    <div class="basis-100  ">
-                        
+                <div className="basis-100  flex flex-row gap-5">
+                    <div className="basis-100  ">
+
                         <h1 className=' basis-50'>{data.main?.temp} °C</h1></div>
-                    <div class="basis-100 text-left">
+                    <div className="basis-100 text-left">
                         <p>Wind : {data.wind?.speed}</p>
                         <p>Humidity : {data.main?.humidity}%</p>
                         <p>Feel like : {data.main?.feels_like} °C</p>
                     </div>
                 </div>
-                <div class="basis-100 text-end">
+                <div className="basis-100 text-end">
                     <h6>{data?.sys?.country}</h6>
                     <h1>{data.name}</h1>
                     <p>Sunrise: {new Date(data?.sys?.sunrise).toLocaleTimeString()} | Sunset: {new Date(data?.sys?.sunset).toLocaleTimeString()} </p>
@@ -113,9 +113,9 @@ const SearchLocation = () => {
                         src={`https://www.google.com/maps?q=${data.coord?.lat},${data.coord?.lon}+(${encodeURIComponent(data?.name)})&hl=en&z=14&output=embed`}
                         width="100%"
                         height="450"
-                        allowfullscreen=""
+                        allowFullScreen=""
                         loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
+                        referrerPolicy="no-referrer-when-downgrade"
                     ></iframe>
                 </div>
             }
