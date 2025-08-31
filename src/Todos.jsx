@@ -69,7 +69,7 @@ function App() {
             <div>
                 <input className='border-2 p-3 border-purple-700 me-3' type="text" value={form.todo} name="todo" onChange={handleChange} placeholder="Add todo..." />
                 <input className='border-2 p-3 border-purple-700 mx-3' type="text" value={form.description} name="description" onChange={handleChange} placeholder="Add Description..." />
-                <input className='border-2 p-3 border-purple-700 mx-3' type="date" value={form.date === '' && form.date} name="date" onChange={handleChange} />
+                <input className='border-2 p-3 border-purple-700 mx-3' type="date" value={form.date} name="date" onChange={handleChange} />
                 <button onClick={handleAddOrEdit}>Add Todo</button>
             </div>
             <input type="text" placeholder="Search Todos...." value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className='border-2 p-3 border-orange-700 mx-3 w-3xl my-3.5' />
