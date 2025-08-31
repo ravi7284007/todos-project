@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import WeatherIcon from './WeatherIcon';
+import { useState, useEffect } from 'react';
 
 const SearchLocation = () => {
     const [searchQuery, setSearchQuery] = useState('delhi');
     const [data, setData] = useState('');
     const [debounceQuery, setDebounceQuery] = useState(searchQuery);
-    // const condition = data.weather[0]?.main;
 
     async function fetchApi() {
         const API_KEY = "c80e9d04924ccbfe4545a95ad3b616d0";
@@ -30,10 +28,6 @@ const SearchLocation = () => {
         const handler = setTimeout(() => setDebounceQuery(searchQuery), 500);
         return () => clearTimeout(handler)
     }, [searchQuery])
-
-    console.log(data);
-    console.log(debounceQuery);
-
 
     return (
         <div>
@@ -101,7 +95,7 @@ const SearchLocation = () => {
                     <div class="basis-100  ">
                         
                         <h1 className=' basis-50'>{data.main?.temp} °C</h1></div>
-                    <div class="basis-50 text-left">
+                    <div class="basis-100 text-left">
                         <p>Wind : {data.wind?.speed}</p>
                         <p>Humidity : {data.main?.humidity}%</p>
                         <p>Feel like : {data.main?.feels_like} °C</p>
