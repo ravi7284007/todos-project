@@ -104,7 +104,7 @@ const SearchLocation = () => {
                 <div className="basis-100 text-end">
                     <h6>{data?.sys?.country}</h6>
                     <h1>{data.name}</h1>
-                    <p>Sunrise: {`${new Date(data?.sys?.sunrise * 1000).toLocaleTimeString()}`} | {`${new Date(data?.sys?.sunset * 1000).toLocaleTimeString()}`} </p>
+                    <p>Sunrise: {`${new Date(data?.sys?.sunrise * 1000).toLocaleTimeString()}`} |  {`Sunset: ${new Date(data?.sys?.sunset * 1000).toLocaleTimeString()}`} </p>
                 </div>
             </div>
             {debounceQuery &&
