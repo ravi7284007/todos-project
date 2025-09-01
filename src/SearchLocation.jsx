@@ -95,16 +95,16 @@ const SearchLocation = () => {
                     <div className="basis-100  ">
                         <h1 className=' basis-90 text-left'><small><sup>🌡</sup></small>{data.main?.temp}°C</h1></div>
                     <div className="basis-100 text-left">
-                        <p>⛅ {data.weather[0].description}</p>
-                        <p>💨 Wind {data.wind.speed} m/s</p>
-                        <p>🌫 Humidity {data.main?.humidity}%</p>
+                        <p>⛅ {data.weather[0]?.description}</p>
+                        <p>💨 Wind {data?.wind?.speed} m/s</p>
+                        <p>🌫 Humidity {data?.main?.humidity}%</p>
                         <p>⛄ {data.main?.feels_like} °C</p>
                     </div>
                 </div>
                 <div className="basis-100 text-end">
                     <h6>{data?.sys?.country}</h6>
                     <h1>{data.name}</h1>
-                    <p>Sunrise: {new Date(data?.sys?.sunrise).toLocaleTimeString()} | Sunset: {new Date(data?.sys?.sunset).toLocaleTimeString()} </p>
+                    <p>Sunrise: {`${new Date(data?.sys?.sunrise * 1000).toLocaleTimeString()}`} | {`${new Date(data?.sys?.sunset * 1000).toLocaleTimeString()}`} </p>
                 </div>
             </div>
             {debounceQuery &&
