@@ -86,9 +86,9 @@ const SearchLocation = () => {
                 </ul>
 
             </div>
-            <h1>Find Location</h1>
-
-
+            <h1>Weather Around You</h1>
+            <p>Know the sky, wherever you are.</p>
+            <br/>
             <input type="search" value={searchQuery} onChange={e => setSearchQuery(e.target.value)} className='capitalize border-2 p-3 border-orange-700 mx-3 w-3xl my-3.5' />
             <div className="weather-card flex flex-row mt-6">
                 <div className="basis-100  flex flex-row gap-5">

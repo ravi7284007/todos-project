@@ -64,7 +64,9 @@ function App() {
     
     return (
         <>
-            <h1>Add your list in Todos</h1>
+            <h1>Simple Task Planner</h1>
+            <p>Stay organized, stay ahead.</p>
+            <br />
             <br />
             <div>
                 <input className='border-2 p-3 border-purple-700 me-3' type="text" value={form.todo} name="todo" onChange={handleChange} placeholder="Add todo..." />
