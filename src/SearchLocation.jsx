@@ -93,12 +93,12 @@ const SearchLocation = () => {
             <div className="weather-card flex flex-row mt-6">
                 <div className="basis-100  flex flex-row gap-5">
                     <div className="basis-100  ">
-
-                        <h1 className=' basis-50'>{data.main?.temp} °C</h1></div>
+                        <h1 className=' basis-90 text-left'><small><sup>🌡</sup></small>{data.main?.temp}°C</h1></div>
                     <div className="basis-100 text-left">
-                        <p>Wind : {data.wind?.speed}</p>
-                        <p>Humidity : {data.main?.humidity}%</p>
-                        <p>Feel like : {data.main?.feels_like} °C</p>
+                        <p>⛅ {data.weather[0].description}</p>
+                        <p>💨 Wind {data.wind.speed} m/s</p>
+                        <p>🌫 Humidity {data.main?.humidity}%</p>
+                        <p>⛄ {data.main?.feels_like} °C</p>
                     </div>
                 </div>
                 <div className="basis-100 text-end">
